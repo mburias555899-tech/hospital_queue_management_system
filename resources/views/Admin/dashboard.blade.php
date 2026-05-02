@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MedSyst — admin</title>
+    <title>MedSyst — Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -22,7 +21,6 @@
         html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--dark);font-size:14px;}
         .shell{display:flex;min-height:100vh;}
 
- 
         .sidebar{width:220px;background:var(--dark);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;}
         .sidebar-logo{display:flex;align-items:center;gap:10px;padding:1.4rem;border-bottom:1px solid rgba(255,255,255,0.08);}
         .logo-box{width:32px;height:32px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -44,13 +42,13 @@
         .logout-btn svg{width:15px;height:15px;flex-shrink:0;}
         .logout-btn:hover{background:rgba(226,75,74,0.15);color:#ff8a89;}
 
+       
         .main{flex:1;display:flex;flex-direction:column;min-width:0;}
         .topbar{background:var(--white);border-bottom:1px solid var(--border);padding:0 2rem;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;flex-shrink:0;}
         .topbar-title{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--dark);letter-spacing:-0.3px;}
         .topbar-date{font-size:0.75rem;color:var(--muted);}
         .topbar-right{display:flex;align-items:center;gap:8px;}
 
-      
         .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;text-decoration:none;transition:all .15s;}
         .btn svg{width:12px;height:12px;}
         .btn-primary{background:var(--dark);color:#fff;border-color:var(--dark);}
@@ -61,7 +59,7 @@
         .btn-teal:hover{background:var(--teal-dark);border-color:var(--teal-dark);}
         .btn-sm{padding:6px 13px;font-size:0.75rem;}
 
-   
+      
         .content{padding:1.75rem 2rem;}
         .flash{padding:10px 16px;border-radius:10px;margin-bottom:1.25rem;font-size:0.82rem;}
         .flash-success{background:var(--green-bg);border:1px solid #c0dd97;color:#2a5a11;}
@@ -83,7 +81,7 @@
         .tile-val{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--dark);line-height:1;}
         .tile-lbl{font-size:0.7rem;color:var(--muted);margin-top:3px;}
 
-      
+     
         .qa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1.75rem;}
         .qa-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.25rem;text-decoration:none;display:flex;align-items:center;gap:12px;transition:box-shadow .15s,border-color .15s;}
         .qa-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);border-color:var(--teal);}
@@ -92,11 +90,12 @@
         .qa-title{font-size:0.88rem;font-weight:600;color:var(--dark);}
         .qa-sub{font-size:0.72rem;color:var(--muted);margin-top:2px;}
 
-    
+       
         .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;}
         .section-head h2{font-size:0.95rem;font-weight:600;color:var(--dark);}
         .section-head p{font-size:0.75rem;color:var(--muted);margin-top:2px;}
 
+  
         .table-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:1.5rem;}
         .table-toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);gap:10px;}
         .search-wrap{position:relative;max-width:260px;flex:1;}
@@ -166,7 +165,10 @@
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h0a4 4 0 014 4v2M9 7a3 3 0 116 0 3 3 0 01-6 0z"/></svg>
                     User Accounts
                 </a>
-               
+                <a href="{{ route('admin.users.create') }}" class="nav-link">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                    Create User
+                </a>
             </div>
         </div>
 
@@ -195,7 +197,7 @@
                 <div class="topbar-title">Admin Dashboard</div>
                 <div class="topbar-date">{{ now()->format('l, F j, Y') }}</div>
             </div>
-           
+            
         </header>
 
         <div class="content">
@@ -224,7 +226,6 @@
             </div>
 
             
-
             {{-- Recent patients --}}
             <div class="section-head">
                 <div><h2>Recent Patients</h2><p>Last 10 registered</p></div>
@@ -274,7 +275,6 @@
             {{-- System users --}}
             <div class="section-head" style="margin-top:0.25rem;">
                 <div><h2>System Users</h2><p>All staff accounts</p></div>
-               
             </div>
             <div class="table-card">
                 <div style="overflow-x:auto;">
